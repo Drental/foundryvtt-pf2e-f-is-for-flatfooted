@@ -1,31 +1,22 @@
 {
-  "name": "module",
-  "title": "New Module",
-  "description": "",
+  "name": "t-is-for-target",
+  "title": "T is for Target",
+  "description": "Target things by hovering and pressing the T key.",
   "version": "0.0.1",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.2",
-  "author": "Cody Swendrowski <cody@swendrowski.us>",
+  "author": "Rob Blanckaert <foundry@basicer.com>",
   "dependencies": [
 
   ],
   "esmodules": [
-    "/scripts/module.js"
   ],
   "scripts": [
-    "/scripts/lib/lib.js"
+    "/scripts/index.js"
   ],
   "styles": [
-    "/styles/module.css"
   ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "url": "https://github.com/cswendrowski/FoundryVTT-module",
-  "manifest": "https://github.com/cswendrowski/FoundryVTT-module/releases/download/latest/module.json",
-  "download": "https://github.com/cswendrowski/FoundryVTT-module/releases/download/0.0.1/module.zip"
+  "url": "https://github.com/basicer/foundryvtt-t-is-for-target",
+  "manifest": "https://github.com/basicer/foundryvtt-t-is-for-target/releases/download/latest/module.json",
+  "download": "https://github.com/basicer/foundryvtt-t-is-for-target/releases/download/0.0.1/module.zip"
 }
