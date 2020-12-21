@@ -1,7 +1,6 @@
 class TIsForTarget {
 
-  static ready() {
-    $(document).keydown(function(e) {
+  static onKeyDown(e) {
       if (e.which == 84) {
         if (TIsForTarget.hovering) {
           if (game.user.targets.has(TIsForTarget.hovering))
@@ -10,7 +9,11 @@ class TIsForTarget {
             TIsForTarget.hovering.setTarget(game.user, {releaseOthers: !e.shiftKey});
         }
       }
-    });
+  }
+
+  static ready() {
+    $(document).unbind('keydown', TIsForTarget.onKeyDown);
+    $(document).keydown(TIsForTarget.onKeyDown);
   }
 
   static onHoverToken(token, hovered) {
@@ -19,6 +22,6 @@ class TIsForTarget {
 
 }
 
-Hooks.once('ready', TIsForTarget.ready);
+Hooks.on('canvasReady',TIsForTarget.ready);
 Hooks.on('hoverToken', TIsForTarget.onHoverToken);
 
