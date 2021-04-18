@@ -1,11 +1,11 @@
 {
-  "name": "t-is-for-target",
-  "title": "T is for Target",
-  "description": "Target things by hovering and pressing the T key.",
-  "version": "0.0.1",
+  "name": "pf2e-f-is-for-flatfooted",
+  "title": "PF2E F is for Flat-footed",
+  "description": "Make things flatfooted by hovering and pressing the F key.",
+  "version": "1.0",
   "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.7.2",
-  "author": "Rob Blanckaert <foundry@basicer.com>",
+  "compatibleCoreVersion": "0.7.9",
+  "author": "Gunnar Busch <foundry@crumblinggiant.com>",
   "dependencies": [
 
   ],
@@ -16,7 +16,10 @@
   ],
   "styles": [
   ],
-  "url": "https://github.com/basicer/foundryvtt-t-is-for-target",
-  "manifest": "https://github.com/basicer/foundryvtt-t-is-for-target/releases/download/latest/module.json",
-  "download": "https://github.com/basicer/foundryvtt-t-is-for-target/releases/download/0.0.1/module.zip"
+  "systems": [
+    "pf2e"
+  ],
+  "url": "https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted",
+  "manifest": "https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/latest/module.json",
+  "download": "https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/latest/module.zip"
 }
