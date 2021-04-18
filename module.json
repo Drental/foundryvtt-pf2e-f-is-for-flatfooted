@@ -2,7 +2,7 @@
   "name": "pf2e-f-is-for-flatfooted",
   "title": "PF2E F is for Flat-footed",
   "description": "Make things flatfooted by hovering and pressing the F key.",
-  "version": "1.0",
+  "version": "1.1",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
   "author": "Gunnar Busch <foundry@crumblinggiant.com>",
