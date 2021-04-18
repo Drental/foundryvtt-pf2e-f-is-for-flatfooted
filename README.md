@@ -1,6 +1,6 @@
 # FoundryVTT Module
 
-Toggle flat-footed by hovering over creatures and hitting F
+Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
