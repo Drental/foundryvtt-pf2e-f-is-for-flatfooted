@@ -12,6 +12,6 @@
   "systems": [
     "pf2e"
   ],
-  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/archive/refs/tags/1.0.zip",
-  "manifest":"https://raw.githubusercontent.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/1.0/module.json"
+  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/archive/refs/tags/1.1.zip",
+  "manifest":"https://raw.githubusercontent.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/1.1/module.json"
 }
