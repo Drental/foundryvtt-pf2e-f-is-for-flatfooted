@@ -3,7 +3,7 @@ class FIsForFlatFooted {
   static onKeyDown(e) {
       if (e.which == 70) {
         if (FIsForFlatFooted.hovering) {
-          game.pf2e.StatusEffects.setStatus(FIsForFlatFooted.hovering, [{ name: 'flatFooted', toggle: true }]);
+          game.pf2e.StatusEffects.setStatus(canvas.tokens._hover, [{ name: 'flatFooted', toggle: true }]);
         }
       }
   }
@@ -13,12 +13,7 @@ class FIsForFlatFooted {
     $(document).keydown(FIsForFlatFooted.onKeyDown);
   }
 
-  static onHoverToken(token, hovered) {
-    FIsForFlatFooted.hovering = hovered ? token : undefined;
-  }
-
 }
 
 Hooks.on('canvasReady',FIsForFlatFooted.ready);
-Hooks.on('hoverToken', FIsForFlatFooted.onHoverToken);
 
