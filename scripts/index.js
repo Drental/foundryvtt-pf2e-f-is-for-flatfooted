@@ -1,7 +1,7 @@
 class FIsForFlatFooted {
 
   static onKeyDown(e) {
-      if (e.which == 70) {
+      if (e.which === 70 && e.ctrlKey === false) {
         if (canvas.tokens._hover) {
           game.pf2e.StatusEffects.setStatus(canvas.tokens._hover, [{ name: 'flatFooted', toggle: true }]);
         }

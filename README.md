@@ -4,6 +4,12 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v1.3.5
+- aded a proper workflow
+- fixed deprecation warnings
+- cleaned up hover detection
+- test for ctrl modifier to not collide with the generic search hotkey
+
 ### v1.2
 
 I should test without a release...
