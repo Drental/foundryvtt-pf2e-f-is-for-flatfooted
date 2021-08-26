@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v2.0.2
+- added keybindlib as a dependency
+
 ### v1.3.5
 - aded a proper workflow
 - fixed deprecation warnings
