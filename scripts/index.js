@@ -6,7 +6,13 @@ Hooks.on("init", () => {
     default: "KeyF",
     onKeyDown: () => {
       if (canvas.tokens._hover) {
-        game.pf2e.StatusEffects.setStatus(canvas.tokens._hover, [{ name: 'flatFooted', toggle: true }]);
+        const actor = canvas.tokens._hover.actor;
+        const conditionSlug = 'flat-footed';
+        if (actor.hasCondition(conditionSlug)) {
+            await actor.decreaseCondition(conditionSlug, { forceRemove: true });
+        } else {
+            await actor.increaseCondition(conditionSlug);
+        }
       }
     }
   });
