@@ -2,7 +2,7 @@
   "name": "pf2e-f-is-for-flatfooted",
   "title": "PF2E F is for Flat-footed",
   "description": "Make things flatfooted by hovering and pressing the F key.",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.8.9",
   "author": "Gunnar Busch <foundry@crumblinggiant.com>",
@@ -17,6 +17,6 @@
       "name": "keybind-lib"
     }
   ],
-  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/2.0.1/module.zip",
-  "manifest":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/latest/download/2.0.1/module.json"
+  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/2.1.0/module.zip",
+  "manifest":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/latest/download/module.json"
 }
