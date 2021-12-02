@@ -4,7 +4,7 @@ Hooks.on("init", () => {
     name: "Toggle Flatfooted",
     hint: "Set or remove flat-footed of the token under the mouse.",
     default: "KeyF",
-    onKeyDown: () => {
+    onKeyDown: async () => {
       if (canvas.tokens._hover) {
         const actor = canvas.tokens._hover.actor;
         const conditionSlug = 'flat-footed';
