@@ -4,6 +4,13 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.0.0
+- adjusted for foundry v9
+- regretting making this module
+- why do I have so many updates on what should be a simple one liner.
+- actually still have only one lingle one liner
+- still mad at number of updates
+
 ### v2.0.2
 - added keybindlib as a dependency
 
