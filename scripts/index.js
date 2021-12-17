@@ -5,7 +5,7 @@ Hooks.on("init", () => {
     hint: "Toggles the FlatFooted state of the token currently hovered over",
     editable: [
       {
-        key: "F"
+        key: "KeyF"
       }
     ],
     onDown: () => { canvas.tokens._hover.actor.toggleCondition('flat-footed') },

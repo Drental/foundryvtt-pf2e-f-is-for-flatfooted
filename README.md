@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.0.1
+- adress breaking change in Keybind API
+
 ### v3.0.0
 - adjusted for foundry v9
 - regretting making this module
