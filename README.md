@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.1.0
+- add a set of 53 bindable options for all action macros, opening the compendium browser, and toggling all not-valued conditions.
+
 ### v3.0.1
 - adress breaking change in Keybind API
 
