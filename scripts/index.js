@@ -8,7 +8,7 @@ Hooks.on("init", () => {
         key: "KeyF"
       }
     ],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('flat-footed') },
+    onDown: () => { canvas.tokens._hover?.actor?.toggleCondition('flat-footed') },
     onUp: () => {},
     restricted: false,
     reservedModifiers: [],
