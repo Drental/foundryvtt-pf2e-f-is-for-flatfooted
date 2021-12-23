@@ -1,13 +1,11 @@
 Hooks.on("init", () => {
   // Binding with a default key and a simple callback
-  if (game.user.isGM) {
-    game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
-      name: "Toggle Visibility",
-      hint: "Toggle Visibility of a Token, GM only function that players can't see",
-      editable: [],
-      onDown: () => { canvas.tokens.controlled[0].toggleVisibility() },
-    });
-  }
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
+    name: "Toggle Visibility",
+    hint: "Toggle Visibility of a Token, GM only function that players can't see",
+    editable: [],
+    onDown: () => { canvas.tokens.controlled[0].toggleVisibility() },
+  });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "flatfooted", {
     name: "F is for Flatfooted",
