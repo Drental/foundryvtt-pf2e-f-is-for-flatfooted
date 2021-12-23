@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.1.3
+- on request of a very special someone: added a toggle to token visibility
+
 ### v3.1.2
 - add additional keybindable actions to end your turn and to increase/decrease/toggle valued conditions total actions at 87 now.
 
