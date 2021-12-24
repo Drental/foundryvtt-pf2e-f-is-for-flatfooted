@@ -2,7 +2,7 @@ Hooks.on("init", () => {
   // Binding with a default key and a simple callback
   game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
     name: "Toggle Visibility",
-    hint: "Toggle Visibility of a Token, GM only function that players can't see",
+    hint: "Toggle Visibility of a Token, GM only function that players can't use",
     editable: [],
     onDown: () => { canvas.tokens.controlled[0].toggleVisibility() },
   });
@@ -46,371 +46,371 @@ Hooks.on("init", () => {
     name: "Toggle Blinded",
     hint: "Changes the Blinded state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('blinded') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('blinded')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "clumsy-increase", {
     name: "Increase Clumsy",
     hint: "Increase the Clumsy state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('clumsy') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('clumsy')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "clumsy-decrease", {
     name: "Decrease Clumsy",
     hint: "Decrease the Clumsy state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('clumsy') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('clumsy')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "clumsy", {
     name: "Toggle Clumsy",
     hint: "Turn Clumsy off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('clumsy') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('clumsy')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "concealed", {
     name: "Toggle Concealed",
     hint: "Changes the Concealed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('concealed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('concealed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "confused", {
     name: "Toggle Confused",
     hint: "Changes the Confused state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('confused') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('confused')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "controlled", {
     name: "Toggle Controlled",
     hint: "Changes the Controlled state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('controlled') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('controlled')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "dazzled", {
     name: "Toggle Dazzled",
     hint: "Changes the Dazzled state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('dazzled') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('dazzled')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "deafened", {
     name: "Toggle Deafened",
     hint: "Changes the Deafened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('deafened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('deafened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "doomed-increase", {
     name: "Increase Doomed",
     hint: "Increase the Doomed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('doomed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('doomed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "doomed-decrease", {
     name: "Decrease Doomed",
     hint: "Decrease the Doomed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('doomed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('doomed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "doomed", {
     name: "Toggle Doomed",
     hint: "Turn Doomed off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('doomed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('doomed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "drained-increase", {
     name: "Increase Drained",
     hint: "Increase the Drained state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('drained') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('drained')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "drained-decrease", {
     name: "Decrease Drained",
     hint: "Decrease the Drained state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('drained') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('drained')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "drained", {
     name: "Toggle Drained",
     hint: "Turn Drained off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('drained') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('drained')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "dying-increase", {
     name: "Increase Dying",
     hint: "Increase the Dying state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('dying') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('dying')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "dying-decrease", {
     name: "Decrease Dying",
     hint: "Decrease the Dying state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('dying') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('dying')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "dying", {
     name: "Toggle Dying",
     hint: "Turn Dying off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('dying') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('dying')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "encumbered", {
     name: "Toggle Encumbered",
     hint: "Changes the Encumbered state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('encumbered') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('encumbered')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "enfeebled-increase", {
     name: "Increase Enfeebled",
     hint: "Increase the Enfeebled state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('enfeebled') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('enfeebled')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "enfeebled-decrease", {
     name: "Decrease Enfeebled",
     hint: "Decrease the Enfeebled state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('enfeebled') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('enfeebled')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "enfeebled", {
     name: "Toggle Enfeebled",
     hint: "Turn Enfeebled off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('enfeebled') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('enfeebled')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "fascinated", {
     name: "Toggle Fascinated",
     hint: "Changes the Fascinated state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('fascinated') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('fascinated')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "fatigued", {
     name: "Toggle Fatigued",
     hint: "Changes the Fatigued state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('fatigued') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('fatigued')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "fleeing", {
     name: "Toggle Fleeing",
     hint: "Changes the Fleeing state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('fleeing') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('fleeing')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "frightened-increase", {
     name: "Increase Frightened",
     hint: "Increase the Frightened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('frightened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('frightened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "frightened-decrease", {
     name: "Decrease Frightened",
     hint: "Decrease the Frightened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('frightened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('frightened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "frightened", {
     name: "Toggle Frightened",
     hint: "Turn Frightened off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('frightened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('frightened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "grabbed", {
     name: "Toggle Grabbed",
     hint: "Changes the Grabbed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('grabbed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('grabbed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "hidden", {
     name: "Toggle Hidden",
     hint: "Changes the Hidden state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('hidden') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('hidden')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "immobilized", {
     name: "Toggle Immobilized",
     hint: "Changes the Immobilized state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('immobilized') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('immobilized')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "invisible", {
     name: "Toggle Invisible",
     hint: "Changes the Invisible state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('invisible') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('invisible')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "paralyzed", {
     name: "Toggle Paralyzed",
     hint: "Changes the Paralyzed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('paralyzed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('paralyzed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "petrified", {
     name: "Toggle Petrified",
     hint: "Changes the Petrified state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('petrified') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('petrified')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "prone", {
     name: "Toggle Prone",
     hint: "Changes the Prone state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('prone') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('prone')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "quickened", {
     name: "Toggle Quickened",
     hint: "Changes the Quickened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('quickened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('quickened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "restrained", {
     name: "Toggle Restrained",
     hint: "Changes the Restrained state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('restrained') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('restrained')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "sickened-increase", {
     name: "Increase Sickened",
     hint: "Increase the Sickened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('sickened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('sickened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "sickened-decrease", {
     name: "Decrease Sickened",
     hint: "Decrease the Sickened state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('sickened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('sickened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "sickened", {
     name: "Toggle Sickened",
     hint: "Turn Sickened off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('sickened') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('sickened')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "slowed-increase", {
     name: "Increase Slowed",
     hint: "Increase the Slowed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('slowed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('slowed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "slowed-decrease", {
     name: "Decrease Slowed",
     hint: "Decrease the Slowed state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('slowed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('slowed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "slowed", {
     name: "Toggle Slowed",
     hint: "Turn Slowed off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('slowed') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('slowed')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stunned-increase", {
     name: "Increase Stunned",
     hint: "Increase the Stunned state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('stunned') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('stunned')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stunned-decrease", {
     name: "Decrease Stunned",
     hint: "Decrease the Stunned state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('stunned') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('stunned')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stunned", {
     name: "Toggle Stunned",
     hint: "Turn Stunned off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('stunned') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('stunned')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stupefied-increase", {
     name: "Increase Stupefied",
     hint: "Increase the Stupefied state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('stupefied') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('stupefied')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stupefied-decrease", {
     name: "Decrease Stupefied",
     hint: "Decrease the Stupefied state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('stupefied') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('stupefied')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "stupefied", {
     name: "Toggle Stupefied",
     hint: "Turn Stupefied off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('stupefied') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('stupefied')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "unconscious", {
     name: "Toggle Unconscious",
     hint: "Changes the Unconscious state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('unconscious') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('unconscious')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "wounded-increase", {
     name: "Increase Wounded",
     hint: "Increase the Wounded state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].increaseCondition('wounded') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.increaseCondition('wounded')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "wounded-decrease", {
     name: "Decrease Wounded",
     hint: "Decrease the Wounded state of the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].decreaseCondition('wounded') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.decreaseCondition('wounded')) },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "wounded", {
     name: "Toggle Wounded",
     hint: "Turn Wounded off or set to 1 for the selected or assigned Token",
     editable: [],
-    onDown: () => { [canvas.tokens.controlled[0]?.actor ?? game.user.character].filter((actor) => actor)[0].toggleCondition('wounded') },
+    onDown: () => { (canvas.tokens.controlled.length>0? canvas.tokens.controlled.map(t => t.actor) : [game.user.character]).forEach(a => a.toggleCondition('wounded')) },
   });
   
   game.keybindings.register("pf2e-f-is-for-flatfooted", "seek", {

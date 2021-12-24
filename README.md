@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.1.6
+- enable toggle/increase/decrease for multiple selected tokens at once
+
 ### v3.1.3
 - on request of a very special someone: added a toggle to token visibility
 
