@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.2.0
+- Fix some keybinding hints, refactor oneliners to look nicer, generalize visibility hotkey - thank you @shem#0226 / @itamarcu
+
 ### v3.1.6
 - enable toggle/increase/decrease for multiple selected tokens at once
 
