@@ -128,215 +128,51 @@ Hooks.on("init", () => {
     }
   }
 
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "seek", {
-    name: "Seek",
-    hint: "Use the Seek action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.seek({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
+	let actions = Array.of(
+		{key:"balance", name:"Balance", hint:"Use the Balance action with the selected token or assigned character.", macro:"balance"},
+		{key:"bonMot", name:"Bon Mot", hint:"Use the Bon Mot action with the selected token or assigned character.", macro:"bonMot"},
+		{key:"climb", name:"Climb", hint:"Use the Climb action with the selected token or assigned character.", macro:"climb"},
+		{key:"coerce", name:"Coerce", hint:"Use the Coerce action with the selected token or assigned character.", macro:"coerce"},
+		{key:"craft", name:"Craft", hint:"Use the Craft action with the selected token or assigned character.", macro:"craft"},
+		{key:"createADiversion", name:"Create A Diversion", hint:"Use the Create A Diversion action with the selected token or assigned character.", macro:"createADiversion"},
+		{key:"demoralize", name:"Demoralize", hint:"Use the Demoralize action with the selected token or assigned character.", macro:"demoralize"},
+		{key:"disarm", name:"Disarm", hint:"Use the Disarm action with the selected token or assigned character.", macro:"disarm"},
+		{key:"feint", name:"Feint", hint:"Use the Feint action with the selected token or assigned character.", macro:"feint"},
+		{key:"forceOpen", name:"Force Open", hint:"Use the Force Open action with the selected token or assigned character.", macro:"forceOpen"},
+		{key:"gatherInformation", name:"Gather Information", hint:"Use the Gather Information action with the selected token or assigned character.", macro:"gatherInformation"},
+		{key:"grapple", name:"Grapple", hint:"Use the Grapple action with the selected token or assigned character.", macro:"grapple"},
+		{key:"hide", name:"Hide", hint:"Use the Hide action with the selected token or assigned character.", macro:"hide"},
+		{key:"highJump", name:"High Jump", hint:"Use the High Jump action with the selected token or assigned character.", macro:"highJump"},
+		{key:"impersonate", name:"Impersonate", hint:"Use the Impersonate action with the selected token or assigned character.", macro:"impersonate"},
+		{key:"lie", name:"Lie", hint:"Use the Lie action with the selected token or assigned character.", macro:"lie"},
+		{key:"longJump", name:"Long Jump", hint:"Use the Long Jump action with the selected token or assigned character.", macro:"longJump"},
+		{key:"makeAnImpression", name:"Make an Impression", hint:"Use the Make an Impression action with the selected token or assigned character.", macro:"makeAnImpression"},
+		{key:"maneuverInFlight", name:"Maneuver in Flight", hint:"Use the Maneuver in Flight action with the selected token or assigned character.", macro:"maneuverInFlight"},
+		{key:"pickALock", name:"Pick a Lock", hint:"Use the Pick a Lock action with the selected token or assigned character.", macro:"pickALock"},
+		{key:"request", name:"Request", hint:"Use the Request action with the selected token or assigned character.", macro:"request"},
+		{key:"seek", name:"Seek", hint:"Use the Seek action with the selected token or assigned character.", macro:"seek"},
+		{key:"senseMotive", name:"Sense Motive", hint:"Use the Sense Motive action with the selected token or assigned character.", macro:"senseMotive"},
+		{key:"shove", name:"Shove", hint:"Use the Shove action with the selected token or assigned character.", macro:"shove"},
+		{key:"sneak", name:"Sneak", hint:"Use the Sneak action with the selected token or assigned character.", macro:"sneak"},
+		{key:"squeeze", name:"Squeeze", hint:"Use the Squeeze action with the selected token or assigned character.", macro:"squeeze"},
+		{key:"swim", name:"Swim", hint:"Use the Swim action with the selected token or assigned character.", macro:"swim"},
+		{key:"trip", name:"Trip", hint:"Use the Trip action with the selected token or assigned character.", macro:"trip"},
+		{key:"tumbleThrough", name:"Tumble Through", hint:"Use the Tumble Through action with the selected token or assigned character.", macro:"tumbleThrough"},
+		{key:"whirlingThrow", name:"Whirling Throw", hint:"Use the Whirling Throw action with the selected token or assigned character.", macro:"whirlingThrow"},
+	);
 
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "senseMotive", {
-    name: "Sense Motive",
-    hint: "Use the Sense Motive action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.senseMotive({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "balance", {
-    name: "Balance",
-    hint: "Use the Balance action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.balance({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "maneuverInFlight", {
-    name: "Maneuver in Flight",
-    hint: "Use the Maneuver in Flight action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.maneuverInFlight({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "squeeze", {
-    name: "Squeeze",
-    hint: "Use the Squeeze action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.squeeze({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "tumbleThrough", {
-    name: "Tumble Through",
-    hint: "Use the Tumble Through action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.tumbleThrough({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "climb", {
-    name: "Climb",
-    hint: "Use the Climb action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.climb({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "disarm", {
-    name: "Disarm",
-    hint: "Use the Disarm action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.disarm({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "forceOpen", {
-    name: "Force Open",
-    hint: "Use the Force Open action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.forceOpen({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "grapple", {
-    name: "Grapple",
-    hint: "Use the Grapple action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.grapple({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "highJump", {
-    name: "High Jump",
-    hint: "Use the High Jump action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.highJump({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "longJump", {
-    name: "Long Jump",
-    hint: "Use the Long Jump action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.longJump({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "shove", {
-    name: "Shove",
-    hint: "Use the Shove action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.shove({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "swim", {
-    name: "Swim",
-    hint: "Use the Swim action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.swim({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "trip", {
-    name: "Trip",
-    hint: "Use the Trip action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.trip({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "whirlingThrow", {
-    name: "Whirling Throw",
-    hint: "Use the Whirling Throw action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.whirlingThrow({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "craft", {
-    name: "Craft",
-    hint: "Use the Craft action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.craft({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "createADiversion", {
-    name: "Create A Diversion",
-    hint: "Use the Create A Diversion action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.createADiversion({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "feint", {
-    name: "Feint",
-    hint: "Use the Feint action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.feint({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "impersonate", {
-    name: "Impersonate",
-    hint: "Use the Impersonate action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.impersonate({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "lie", {
-    name: "Lie",
-    hint: "Use the Lie action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.lie({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "bonMot", {
-    name: "Bon Mot",
-    hint: "Use the Bon Mot action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.bonMot({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "gatherInformation", {
-    name: "Gather Information",
-    hint: "Use the Gather Information action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.gatherInformation({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "makeAnImpression", {
-    name: "Make an Impression",
-    hint: "Use the Make an Impression action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.makeAnImpression({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "request", {
-    name: "Request",
-    hint: "Use the Request action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.request({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "coerce", {
-    name: "Coerce",
-    hint: "Use the Coerce action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.coerce({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "demoralize", {
-    name: "Demoralize",
-    hint: "Use the Demoralize action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.demoralize({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "hide", {
-    name: "Hide",
-    hint: "Use the Hide action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.hide({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "sneak", {
-    name: "Sneak",
-    hint: "Use the Sneak action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.sneak({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-  game.keybindings.register("pf2e-f-is-for-flatfooted", "pickALock", {
-    name: "Pick a Lock",
-    hint: "Use the Pick a Lock action with the selected token or assigned character.",
-    editable: [],
-    onDown: () => { game.pf2e.actions.pickALock({ actors: oneSelectedTokenActorOrDefaultCharacter() })},
-  });
-
-
+	actions.forEach((action) => {
+			game.keybindings.register("pf2e-f-is-for-flatfooted", action.key, {
+				name: action.name,
+				hint: action.hint,
+				editable: [],
+				onDown: () => {
+					game.pf2e.actions[action.macro](
+						{
+							actors: oneSelectedTokenActorOrDefaultCharacter()
+						})
+				},
+			});
+		}
+	)
 })
