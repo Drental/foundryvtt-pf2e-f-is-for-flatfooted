@@ -4,6 +4,10 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.3.0
+Refactor how keybinds are added (thanks xdy)
+Add cover keybind
+
 ### v3.2.0
 - Fix some keybinding hints, refactor oneliners to look nicer, generalize visibility hotkey - thank you @shem#0226 / @itamarcu
 
