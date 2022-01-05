@@ -40,7 +40,7 @@ const toggleVisibility = (canvasObjectList, documentName) => {
   }
 }
 
-const toggleCover = () => {
+const toggleCover = async () => {
   const actors = canvas.tokens.controlled.flatMap((token) => token.actor ?? []);
   if (!actors.length && game.user.character) {
     actors.push(game.user.character);
@@ -110,7 +110,7 @@ Hooks.on("init", () => {
     hint: "Use the take Cover action with or apply situational cover with the selected token(s) or assigned character.",
     editable: [],
     onDown: () => { 
-      
+      toggleCover()
     },
   });
 
