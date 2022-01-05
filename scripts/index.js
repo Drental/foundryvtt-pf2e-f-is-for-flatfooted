@@ -40,6 +40,25 @@ const toggleVisibility = (canvasObjectList, documentName) => {
   }
 }
 
+const toggleCover = () => {
+  const actors = canvas.tokens.controlled.flatMap((token) => token.actor ?? []);
+  if (!actors.length && game.user.character) {
+    actors.push(game.user.character);
+  }
+  const ITEM_UUID = 'Compendium.pf2e.equipment-effects.I9lfZUiCwMiGogVi'; // Cover
+  const source = (await fromUuid(ITEM_UUID)).toObject();
+  source.flags.core ??= {};
+  source.flags.core.sourceId = ITEM_UUID;
+  for await (const actor of actors) {
+    const existing = actor.itemTypes.effect.find((effect) => effect.getFlag('core', 'sourceId') === ITEM_UUID);
+    if (existing) {
+      await existing.delete();
+    } else {
+      await actor.createEmbeddedDocuments('Item', [source]);
+    }
+  }
+}
+
 Hooks.on("init", () => {
   game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
     name: "Toggle Visibility",
@@ -85,28 +104,13 @@ Hooks.on("init", () => {
     editable: [],
     onDown: () => { game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() })},
   });
-
+  
   game.keybindings.register("pf2e-f-is-for-flatfooted", "takeCover", {
     name: "Take Cover",
     hint: "Use the take Cover action with or apply situational cover with the selected token(s) or assigned character.",
     editable: [],
     onDown: () => { 
-      const actors = canvas.tokens.controlled.flatMap((token) => token.actor ?? []);
-      if (!actors.length && game.user.character) {
-        actors.push(game.user.character);
-      }
-      const ITEM_UUID = 'Compendium.pf2e.equipment-effects.I9lfZUiCwMiGogVi'; // Cover
-      const source = (await fromUuid(ITEM_UUID)).toObject();
-      source.flags.core ??= {};
-      source.flags.core.sourceId = ITEM_UUID;
-      for await (const actor of actors) {
-        const existing = actor.itemTypes.effect.find((effect) => effect.getFlag('core', 'sourceId') === ITEM_UUID);
-        if (existing) {
-          await existing.delete();
-        } else {
-          await actor.createEmbeddedDocuments('Item', [source]);
-        }
-      }
+      
     },
   });
 
