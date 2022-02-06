@@ -66,10 +66,11 @@ Hooks.on("init", () => {
     editable: [],
     onDown: () => {
       // only one of the following will happen, because the user can only be on a single layer
-      toggleVisibility(canvas.tokens, 'Token')
-      toggleVisibility(canvas.drawings, 'Drawing')
-      toggleVisibility(canvas.background, 'Tile')
-      toggleVisibility(canvas.foreground, 'Tile')
+      toggleVisibility(canvas.tokens, 'Token');
+      toggleVisibility(canvas.drawings, 'Drawing');
+      toggleVisibility(canvas.background, 'Tile');
+      toggleVisibility(canvas.foreground, 'Tile');
+      return true;
     },
   });
 
@@ -81,28 +82,28 @@ Hooks.on("init", () => {
         key: "KeyF"
       }
     ],
-    onDown: () => { canvas.tokens._hover?.actor?.toggleCondition('flat-footed') },
+    onDown: () => { canvas.tokens._hover?.actor?.toggleCondition('flat-footed'); return true; },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
     name: "Open Compendium Browser",
     hint: "Open the compendium browser, or close it if it's already opened.",
     editable: [],
-    onDown: () => { game.pf2e.compendiumBrowser.rendered ? game.pf2e.compendiumBrowser.close() : game.pf2e.compendiumBrowser.render(true)},
+    onDown: () => { game.pf2e.compendiumBrowser.rendered ? game.pf2e.compendiumBrowser.close() : game.pf2e.compendiumBrowser.render(true); return true;},
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "endTurn", {
     name: "End Turn",
     hint: "End your turn in combat. As GM, this will end anyone's turn.",
     editable: [],
-    onDown: () => { game.combat.nextTurn()},
+    onDown: () => { game.combat.nextTurn(); return true;},
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "raiseAShield", {
     name: "Raise a Shield",
     hint: "Use the Raise a Shield action with the selected token(s) or assigned character.",
     editable: [],
-    onDown: () => { game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() })},
+    onDown: () => { game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() }); return true;},
   });
   
   game.keybindings.register("pf2e-f-is-for-flatfooted", "takeCover", {
@@ -111,7 +112,50 @@ Hooks.on("init", () => {
     editable: [],
     onDown: () => { 
       toggleCover()
+      return true;
     },
+  });
+
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "showTokenArt", {
+    name: "Show Token Art",
+    hint: "Create a Popup with the Token Art of the currently selected token or the assigned character.",
+    editable: [],
+    onDown: () => {
+      const tokenActor = oneSelectedTokenActorOrDefaultCharacter()[0];
+      if (!tokenActor) {
+        ui.notifications.error("nothing selected!");
+      } else {
+        const popout = new ImagePopout(tokenActor.data.token.img, {
+          title: tokenActor.data.token.name,
+          shareable: true,
+          uuid: tokenActor.uuid
+        })
+        popout.render(true);
+        popout.shareImage();
+        return true;
+      }
+    }
+  });
+
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "showActorArt", {
+    name: "Show Actor Art",
+    hint: "Create a Popup with the Actor Art of the currently selected token or the assigned character.",
+    editable: [],
+    onDown: () => {
+      const tokenActor = oneSelectedTokenActorOrDefaultCharacter()[0];
+      if (!tokenActor) {
+        ui.notifications.error("nothing selected!");
+      } else {
+        const popout = new ImagePopout(tokenActor.img, {
+          title: tokenActor.name,
+          shareable: true,
+          uuid: tokenActor.uuid
+        })
+        popout.render(true);
+        popout.shareImage();
+        return true;
+      }
+    }
   });
 
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
@@ -130,7 +174,8 @@ Hooks.on("init", () => {
         hint: `Toggle the ${conditionName} condition of the selected token(s) or assigned character.`,
         editable: [],
         onDown: () => {
-          selectedTokenActorsOrDefaultCharacter().forEach(a => a.toggleCondition(condition))
+          selectedTokenActorsOrDefaultCharacter().forEach(a => a.toggleCondition(condition));
+          return true;
         },
       });
 
@@ -140,7 +185,8 @@ Hooks.on("init", () => {
           hint: `Increase the ${conditionName} condition of the selected token(s) or assigned character.`,
           editable: [],
           onDown: () => {
-            selectedTokenActorsOrDefaultCharacter().forEach(a => a.increaseCondition(condition))
+            selectedTokenActorsOrDefaultCharacter().forEach(a => a.increaseCondition(condition));
+            return true;
           },
         });
 
@@ -149,7 +195,8 @@ Hooks.on("init", () => {
           hint: `Decrease the ${conditionName} condition of the selected token(s) or assigned character.`,
           editable: [],
           onDown: () => {
-            selectedTokenActorsOrDefaultCharacter().forEach(a => a.decreaseCondition(condition))
+            selectedTokenActorsOrDefaultCharacter().forEach(a => a.decreaseCondition(condition));
+            return true;
           },
         });
       }
@@ -198,7 +245,8 @@ Hooks.on("init", () => {
 					game.pf2e.actions[action.macro](
 						{
 							actors: oneSelectedTokenActorOrDefaultCharacter()
-						})
+						});
+          return true;
 				},
 			});
 		}
