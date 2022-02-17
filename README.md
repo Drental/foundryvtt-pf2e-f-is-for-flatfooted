@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v3.4.3
+change name.
+
 ### v3.4.0
 add show token/character art keybinds.
 return true when a keybind was executed.

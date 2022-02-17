@@ -1,8 +1,8 @@
 {
   "name": "pf2e-f-is-for-flatfooted",
-  "title": "PF2e F is for Flat-footed",
-  "description": "Adds the Flatfooted toggle on F and a set of Actions to assign keybinds to.",
-  "version": "3.4.0",
+  "title": "pF2E Keybind Menagerie",
+  "description": "Adds Condition, action, and miscellaneous Keybinds to the PF2e system.",
+  "version": "3.4.3",
   "minimumCoreVersion": "9.238",
   "compatibleCoreVersion": "9",
   "author": "DrentalBot <drentalbot@crumblinggiant.com>",
@@ -14,6 +14,6 @@
   ],
   "dependencies": [],
   "url": "https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted",
-  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/3.4.0/module.zip",
+  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/3.4.3/module.zip",
   "manifest":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/latest/download/module.json"
 }
