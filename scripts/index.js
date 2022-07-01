@@ -157,6 +157,32 @@ Hooks.on("init", () => {
       }
     }
   });
+  
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "cycleAlliance", {
+    name: "Cycle alliance",
+    hint: "Changes the selected or assigned NPC or Character's alliance for flanking and displays the new alliance status",
+    editable: [],
+    onDown: () => { 
+      const actor = oneSelectedTokenActorOrDefaultCharacter()[0];
+      if (!actor?.isOfType("character", "npc")) {
+        return ui.notifications.error("Select one token representing a PC or NPC.");
+      }
+
+      const newAlliance = new Map([
+        ["party", "opposition"],
+        ["opposition", null],
+        [null, "party"],
+      ]).get(actor.alliance);
+      await actor.update({ "data.details.alliance": newAlliance });
+
+      if (newAlliance === null) {
+        ui.notifications.info(`${actor.name} is now neutral.`);
+      } else {
+        ui.notifications.info(`${actor.name} is now allied with the ${actor.alliance}.`);
+      }
+      return true;
+    },
+  });
 
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
   let alreadyKeyboundConditions = ['flat-footed'];
