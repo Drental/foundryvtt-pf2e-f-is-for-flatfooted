@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v4.0.1
+bugfix
+
 ### v4.0.0
 add cycle alliance keybind
 
