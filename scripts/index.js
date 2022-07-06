@@ -188,6 +188,21 @@ Hooks.on("init", () => {
     },
   });
 
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "goToSearch", {
+    name: "Go to Search",
+    hint: "Moves the cursor into the Compendium search.",
+    editable: [],
+    onDown: async () => {
+      ui.sidebar.expand();
+      ui.sidebar.activateTab("compendium");
+      await new Promise(resolve => {setTimeout(resolve, 50);});
+      let element = $("#compendium [name=search]");
+      element.focus();
+      await new Promise(resolve => {setTimeout(resolve, 50);});
+      element.val("");
+    }
+  });
+
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
   let alreadyKeyboundConditions = ['flat-footed'];
   let ignorableConditions = ['helpful', 'friendly', 'unfriendly'];
