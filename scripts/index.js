@@ -45,7 +45,7 @@ const toggleCover = async () => {
   if (!actors.length && game.user.character) {
     actors.push(game.user.character);
   }
-  const ITEM_UUID = 'Compendium.pf2e.equipment-effects.I9lfZUiCwMiGogVi'; // Cover
+  const ITEM_UUID = 'Compendium.pf2e.other-effects.I9lfZUiCwMiGogVi'; // Cover
   const source = (await fromUuid(ITEM_UUID)).toObject();
   source.flags.core ??= {};
   source.flags.core.sourceId = ITEM_UUID;
@@ -102,7 +102,7 @@ Hooks.on("init", () => {
         key: "KeyF"
       }
     ],
-    onDown: () => { canvas.tokens._hover?.actor?.toggleCondition('flat-footed'); return true; },
+    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('flat-footed'); return true; },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
@@ -145,7 +145,7 @@ Hooks.on("init", () => {
       if (!tokenActor) {
         ui.notifications.error("nothing selected!");
       } else {
-        const popout = new ImagePopout(tokenActor.data.token.img, {
+        const popout = new ImagePopout(tokenActor.data.token.texture.src, {
           title: tokenActor.data.token.name,
           shareable: true,
           uuid: tokenActor.uuid
