@@ -35,7 +35,7 @@ const toggleVisibility = (canvasObjectList, documentName) => {
   if (canvasObjectList.controlled[0]) {
     canvas.scene.updateEmbeddedDocuments(
       documentName,
-      canvasObjectList.controlled.map(it => ({ _id: it.id, hidden: !it.data.hidden }))
+      canvasObjectList.controlled.map(it => ({ _id: it.id, hidden: !it.document.hidden }))
     )
   }
 }
@@ -70,7 +70,7 @@ const cycleAlliance = async () => {
     ["opposition", null],
     [null, "party"],
   ]).get(actor.alliance);
-  await actor.update({ "data.details.alliance": newAlliance });
+  await actor.update({ "system.details.alliance": newAlliance });
 
   if (newAlliance === null) {
     ui.notifications.info(`${actor.name} is now neutral.`);
@@ -88,8 +88,7 @@ Hooks.on("init", () => {
       // only one of the following will happen, because the user can only be on a single layer
       toggleVisibility(canvas.tokens, 'Token');
       toggleVisibility(canvas.drawings, 'Drawing');
-      toggleVisibility(canvas.background, 'Tile');
-      toggleVisibility(canvas.foreground, 'Tile');
+      toggleVisibility(canvas.tiles, 'Tile');
       return true;
     },
   });
