@@ -70,7 +70,7 @@ const cycleAlliance = async () => {
     ["opposition", null],
     [null, "party"],
   ]).get(actor.alliance);
-  await actor.update({ "data.details.alliance": newAlliance });
+  await actor.update({ "system.details.alliance": newAlliance });
 
   if (newAlliance === null) {
     ui.notifications.info(`${actor.name} is now neutral.`);
