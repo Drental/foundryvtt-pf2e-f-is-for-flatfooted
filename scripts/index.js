@@ -35,7 +35,7 @@ const toggleVisibility = (canvasObjectList, documentName) => {
   if (canvasObjectList.controlled[0]) {
     canvas.scene.updateEmbeddedDocuments(
       documentName,
-      canvasObjectList.controlled.map(it => ({ _id: it.id, hidden: !it.data.hidden }))
+      canvasObjectList.controlled.map(it => ({ _id: it.id, hidden: !it.document.hidden }))
     )
   }
 }
@@ -88,8 +88,7 @@ Hooks.on("init", () => {
       // only one of the following will happen, because the user can only be on a single layer
       toggleVisibility(canvas.tokens, 'Token');
       toggleVisibility(canvas.drawings, 'Drawing');
-      toggleVisibility(canvas.background, 'Tile');
-      toggleVisibility(canvas.foreground, 'Tile');
+      toggleVisibility(canvas.tiles, 'Tile');
       return true;
     },
   });
