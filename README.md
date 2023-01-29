@@ -4,6 +4,9 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v4.20.0
+fix authors array and action list
+
 ### v4.10.0
 V10 compat
 

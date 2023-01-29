@@ -6,8 +6,13 @@
     "minimum": "10",
     "verified": "10.285"
   },
-  "version": "4.10.1",
-  "author": "DrentalBot <drentalbot@crumblinggiant.com>",
+  "version": "4.20",
+  "authors": [
+    {
+      "name": "DrentalBot",
+      "email": "drentalbot@crumblinggiant.com"
+    }
+  ],
   "scripts": [
     "/scripts/index.js"
   ],

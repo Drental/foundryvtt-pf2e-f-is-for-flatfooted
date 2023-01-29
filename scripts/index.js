@@ -247,38 +247,18 @@ Hooks.on("init", () => {
     }
   }
 
-	let actions = Array.of(
-		{key:"balance", name:"Balance", hint:"Use the Balance action with the selected token or assigned character.", macro:"balance"},
-		{key:"bonMot", name:"Bon Mot", hint:"Use the Bon Mot action with the selected token or assigned character.", macro:"bonMot"},
-		{key:"climb", name:"Climb", hint:"Use the Climb action with the selected token or assigned character.", macro:"climb"},
-		{key:"coerce", name:"Coerce", hint:"Use the Coerce action with the selected token or assigned character.", macro:"coerce"},
-		{key:"craft", name:"Craft", hint:"Use the Craft action with the selected token or assigned character.", macro:"craft"},
-		{key:"createADiversion", name:"Create A Diversion", hint:"Use the Create A Diversion action with the selected token or assigned character.", macro:"createADiversion"},
-		{key:"demoralize", name:"Demoralize", hint:"Use the Demoralize action with the selected token or assigned character.", macro:"demoralize"},
-		{key:"disarm", name:"Disarm", hint:"Use the Disarm action with the selected token or assigned character.", macro:"disarm"},
-		{key:"feint", name:"Feint", hint:"Use the Feint action with the selected token or assigned character.", macro:"feint"},
-		{key:"forceOpen", name:"Force Open", hint:"Use the Force Open action with the selected token or assigned character.", macro:"forceOpen"},
-		{key:"gatherInformation", name:"Gather Information", hint:"Use the Gather Information action with the selected token or assigned character.", macro:"gatherInformation"},
-		{key:"grapple", name:"Grapple", hint:"Use the Grapple action with the selected token or assigned character.", macro:"grapple"},
-		{key:"hide", name:"Hide", hint:"Use the Hide action with the selected token or assigned character.", macro:"hide"},
-		{key:"highJump", name:"High Jump", hint:"Use the High Jump action with the selected token or assigned character.", macro:"highJump"},
-		{key:"impersonate", name:"Impersonate", hint:"Use the Impersonate action with the selected token or assigned character.", macro:"impersonate"},
-		{key:"lie", name:"Lie", hint:"Use the Lie action with the selected token or assigned character.", macro:"lie"},
-		{key:"longJump", name:"Long Jump", hint:"Use the Long Jump action with the selected token or assigned character.", macro:"longJump"},
-		{key:"makeAnImpression", name:"Make an Impression", hint:"Use the Make an Impression action with the selected token or assigned character.", macro:"makeAnImpression"},
-		{key:"maneuverInFlight", name:"Maneuver in Flight", hint:"Use the Maneuver in Flight action with the selected token or assigned character.", macro:"maneuverInFlight"},
-		{key:"pickALock", name:"Pick a Lock", hint:"Use the Pick a Lock action with the selected token or assigned character.", macro:"pickALock"},
-		{key:"request", name:"Request", hint:"Use the Request action with the selected token or assigned character.", macro:"request"},
-		{key:"seek", name:"Seek", hint:"Use the Seek action with the selected token or assigned character.", macro:"seek"},
-		{key:"senseMotive", name:"Sense Motive", hint:"Use the Sense Motive action with the selected token or assigned character.", macro:"senseMotive"},
-		{key:"shove", name:"Shove", hint:"Use the Shove action with the selected token or assigned character.", macro:"shove"},
-		{key:"sneak", name:"Sneak", hint:"Use the Sneak action with the selected token or assigned character.", macro:"sneak"},
-		{key:"squeeze", name:"Squeeze", hint:"Use the Squeeze action with the selected token or assigned character.", macro:"squeeze"},
-		{key:"swim", name:"Swim", hint:"Use the Swim action with the selected token or assigned character.", macro:"swim"},
-		{key:"trip", name:"Trip", hint:"Use the Trip action with the selected token or assigned character.", macro:"trip"},
-		{key:"tumbleThrough", name:"Tumble Through", hint:"Use the Tumble Through action with the selected token or assigned character.", macro:"tumbleThrough"},
-		{key:"whirlingThrow", name:"Whirling Throw", hint:"Use the Whirling Throw action with the selected token or assigned character.", macro:"whirlingThrow"},
-	);
+  let actions = object.keys(game.pf2e.actions).map((key) => {
+    const name = "key"
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/^./, function(str){ return str.toUpperCase(); })
+    const hint = `Use the ${name} action with the selected token or assigned character.`
+    return {
+      key,
+      name,
+      hint,
+      macro: key
+    }
+  });
 
 	actions.forEach((action) => {
 			game.keybindings.register("pf2e-f-is-for-flatfooted", action.key, {
