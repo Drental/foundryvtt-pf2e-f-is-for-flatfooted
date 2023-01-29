@@ -6,7 +6,7 @@
     "minimum": "10",
     "verified": "10.285"
   },
-  "version": "4.20",
+  "version": "4.20.1",
   "authors": [
     {
       "name": "DrentalBot",
@@ -26,6 +26,6 @@
     }]
   },
   "url": "https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted",
-  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/4.10.1/module.zip",
+  "download":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/download/4.20.1/module.zip",
   "manifest":"https://github.com/Drental/foundryvtt-pf2e-f-is-for-flatfooted/releases/latest/download/module.json"
 }

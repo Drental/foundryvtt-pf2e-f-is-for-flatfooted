@@ -247,8 +247,8 @@ Hooks.on("init", () => {
     }
   }
 
-  let actions = object.keys(game.pf2e.actions).map((key) => {
-    const name = "key"
+  let actions = Object.keys(game.pf2e.actions).map((key) => {
+    const name = key
       .replace(/([A-Z])/g, ' $1')
       .replace(/^./, function(str){ return str.toUpperCase(); })
     const hint = `Use the ${name} action with the selected token or assigned character.`
