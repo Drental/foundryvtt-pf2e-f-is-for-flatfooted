@@ -115,7 +115,13 @@ Hooks.on("init", () => {
     name: "End Turn",
     hint: "End your turn in combat. As GM, this will end anyone's turn.",
     editable: [],
-    onDown: () => { game.combat.nextTurn(); return true;},
+    onDown: () => { 
+      if (game.combat.combatants.get(game.combat.current.combatantId).isOwner) {
+        game.combat.nextTurn();
+        return true;
+      }
+      return false;
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "raiseAShield", {
