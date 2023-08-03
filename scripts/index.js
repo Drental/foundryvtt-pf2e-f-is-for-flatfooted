@@ -1,7 +1,7 @@
 const selectedTokenActorsOrDefaultCharacter = () => {
   const controlledTokenActors = canvas.tokens.controlled.map(t => t.actor)
   const defaultUserActor = game.user.character
-  if (controlledTokenActors.length !== 0) {
+  if (controlledTokenActors.length !== 0) { 
     return controlledTokenActors
   } else if (defaultUserActor) {
     return [defaultUserActor]
@@ -101,7 +101,7 @@ Hooks.on("init", () => {
         key: "KeyF"
       }
     ],
-    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('flat-footed'); return true; },
+    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('offguard'); return true; },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
@@ -209,7 +209,7 @@ Hooks.on("init", () => {
   });
 
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
-  let alreadyKeyboundConditions = ['flat-footed'];
+  let alreadyKeyboundConditions = ['offguard'];
   let ignorableConditions = ['helpful', 'friendly', 'unfriendly'];
   let numericConditions = ['clumsy', 'doomed', 'drained', 'dying', 'enfeebled', 'frightened', 'sickened', 'slowed', 'stunned', 'stupefied', 'wounded'];
 
