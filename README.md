@@ -4,6 +4,14 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v5.3.1
+- getting ahead of system releases 🥳
+
+- actually a fix for an old issue about wildcard images.
+
+### v5.3.0
+- Finally people are no longer afflicted with medical issues regarding their feet, when they are caught off-guard.
+
 ### v5.0.0
 - v11 here we go!
 
