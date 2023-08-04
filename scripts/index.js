@@ -150,7 +150,7 @@ Hooks.on("init", () => {
       if (!tokenActor) {
         ui.notifications.error("nothing selected!");
       } else {
-        const popout = new ImagePopout(tokenActor.data.token.texture.src, {
+        const popout = new ImagePopout(token.document.texture.src, {
           title: tokenActor.data.token.name,
           shareable: true,
           uuid: tokenActor.uuid
