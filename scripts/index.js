@@ -101,7 +101,7 @@ Hooks.on("init", () => {
         key: "KeyF"
       }
     ],
-    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('offguard'); return true; },
+    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('off-guard'); return true; },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
