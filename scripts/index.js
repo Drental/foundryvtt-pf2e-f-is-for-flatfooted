@@ -94,14 +94,14 @@ Hooks.on("init", () => {
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "flatfooted", {
-    name: "F is for Flatfooted",
+    name: "F is for Off-Guard",
     hint: "Toggle the Flatfooted condition on the token currently hovered over (if you can control it).",
     editable: [
       {
         key: "KeyF"
       }
     ],
-    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('offguard'); return true; },
+    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('off-guard'); return true; },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
@@ -209,7 +209,7 @@ Hooks.on("init", () => {
   });
 
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
-  let alreadyKeyboundConditions = ['offguard'];
+  let alreadyKeyboundConditions = ['off-guard'];
   let ignorableConditions = ['helpful', 'friendly', 'unfriendly'];
   let numericConditions = ['clumsy', 'doomed', 'drained', 'dying', 'enfeebled', 'frightened', 'sickened', 'slowed', 'stunned', 'stupefied', 'wounded'];
 
