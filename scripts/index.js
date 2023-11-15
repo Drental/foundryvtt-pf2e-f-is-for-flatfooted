@@ -1,7 +1,7 @@
 const selectedTokenActorsOrDefaultCharacter = () => {
   const controlledTokenActors = canvas.tokens.controlled.map(t => t.actor)
   const defaultUserActor = game.user.character
-  if (controlledTokenActors.length !== 0) { 
+  if (controlledTokenActors.length !== 0) {
     return controlledTokenActors
   } else if (defaultUserActor) {
     return [defaultUserActor]
@@ -115,12 +115,23 @@ Hooks.on("init", () => {
     name: "End Turn",
     hint: "End your turn in combat. As GM, this will end anyone's turn.",
     editable: [],
-    onDown: () => { 
+    onDown: () => {
       if (game.combat.combatants.get(game.combat.current.combatantId).isOwner) {
         game.combat.nextTurn();
         return true;
       }
       return false;
+    },
+  });
+
+  game.keybindings.register("pf2e-f-is-for-flatfooted", "toggleDefeated", {
+    name: "Mark Defeated",
+    hint: "Mark an actor as defeated",
+    editable: [],
+    onDown: () => {
+      const actor = oneSelectedTokenActorOrDefaultCharacter()[0];
+      actor.combatant.toggleDefeated()
+      return true;
     },
   });
 
@@ -130,12 +141,12 @@ Hooks.on("init", () => {
     editable: [],
     onDown: () => { game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() }); return true;},
   });
-  
+
   game.keybindings.register("pf2e-f-is-for-flatfooted", "takeCover", {
     name: "Take Cover",
     hint: "Use the take Cover action with or apply situational cover with the selected token(s) or assigned character.",
     editable: [],
-    onDown: () => { 
+    onDown: () => {
       toggleCover()
       return true;
     },
@@ -182,12 +193,12 @@ Hooks.on("init", () => {
       }
     }
   });
-  
+
   game.keybindings.register("pf2e-f-is-for-flatfooted", "cycleAlliance", {
     name: "Cycle alliance",
     hint: "Changes the selected or assigned NPC or Character's alliance for flanking and displays the new alliance status",
     editable: [],
-    onDown: () => { 
+    onDown: () => {
       cycleAlliance();
       return true;
     },
