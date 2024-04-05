@@ -1,63 +1,63 @@
 const selectedTokenActorsOrDefaultCharacter = () => {
-  const controlledTokenActors = canvas.tokens.controlled.map(t => t.actor)
-  const defaultUserActor = game.user.character
+  const controlledTokenActors = canvas.tokens.controlled.map((t) => t.actor);
+  const defaultUserActor = game.user.character;
   if (controlledTokenActors.length !== 0) {
-    return controlledTokenActors
+    return controlledTokenActors;
   } else if (defaultUserActor) {
-    return [defaultUserActor]
+    return [defaultUserActor];
   } else {
-    ui.notifications.warn('You need to have a token selected or a default character for this key binding to work.')
-    return []
+    ui.notifications.warn("You need to have a token selected or a default character for this key binding to work.");
+    return [];
   }
-}
+};
 
 /**
  * This function is just like the above, but expects a single token and doesn't allow many.
  * This is to avoid accidentally creating a lot of chat messages at once (as this is almost never intended)
  */
 const oneSelectedTokenActorOrDefaultCharacter = () => {
-  const controlledTokenActors = canvas.tokens.controlled.map(t => t.actor)
-  const defaultUserActor = game.user.character
+  const controlledTokenActors = canvas.tokens.controlled.map((t) => t.actor);
+  const defaultUserActor = game.user.character;
   if (controlledTokenActors.length === 1) {
-    return controlledTokenActors
+    return controlledTokenActors;
   } else if (controlledTokenActors.length > 1) {
-    ui.notifications.warn('You should only have a single token selected for this key binding to work.')
-    return []
+    ui.notifications.warn("You should only have a single token selected for this key binding to work.");
+    return [];
   } else if (defaultUserActor) {
-    return [defaultUserActor]
+    return [defaultUserActor];
   } else {
-    ui.notifications.warn('You need to have a token selected or a default character for this key binding to work.')
-    return []
+    ui.notifications.warn("You need to have a token selected or a default character for this key binding to work.");
+    return [];
   }
-}
+};
 
 const toggleVisibility = (canvasObjectList, documentName) => {
   if (canvasObjectList.controlled[0]) {
     canvas.scene.updateEmbeddedDocuments(
       documentName,
-      canvasObjectList.controlled.map(it => ({ _id: it.id, hidden: !it.document.hidden }))
-    )
+      canvasObjectList.controlled.map((it) => ({ _id: it.id, hidden: !it.document.hidden }))
+    );
   }
-}
+};
 
 const toggleCover = async () => {
   const actors = canvas.tokens.controlled.flatMap((token) => token.actor ?? []);
   if (!actors.length && game.user.character) {
     actors.push(game.user.character);
   }
-  const ITEM_UUID = 'Compendium.pf2e.other-effects.I9lfZUiCwMiGogVi'; // Cover
+  const ITEM_UUID = "Compendium.pf2e.other-effects.I9lfZUiCwMiGogVi"; // Cover
   const source = (await fromUuid(ITEM_UUID)).toObject();
   source.flags.core ??= {};
   source.flags.core.sourceId = ITEM_UUID;
   for await (const actor of actors) {
-    const existing = actor.itemTypes.effect.find((effect) => effect.getFlag('core', 'sourceId') === ITEM_UUID);
+    const existing = actor.itemTypes.effect.find((effect) => effect.getFlag("core", "sourceId") === ITEM_UUID);
     if (existing) {
       await existing.delete();
     } else {
-      await actor.createEmbeddedDocuments('Item', [source]);
+      await actor.createEmbeddedDocuments("Item", [source]);
     }
   }
-}
+};
 
 const cycleAlliance = async () => {
   const actor = oneSelectedTokenActorOrDefaultCharacter()[0];
@@ -77,18 +77,18 @@ const cycleAlliance = async () => {
   } else {
     ui.notifications.info(`${actor.name} is now allied with the ${actor.alliance}.`);
   }
-}
+};
 
-Hooks.on("init", () => {
+Hooks.on("setup", () => {
   game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
     name: "Toggle Visibility",
     hint: "Toggle the visibility state of each selected token, tile, or drawing (hiding or revealing it).",
     editable: [],
     onDown: () => {
       // only one of the following will happen, because the user can only be on a single layer
-      toggleVisibility(canvas.tokens, 'Token');
-      toggleVisibility(canvas.drawings, 'Drawing');
-      toggleVisibility(canvas.tiles, 'Tile');
+      toggleVisibility(canvas.tokens, "Token");
+      toggleVisibility(canvas.drawings, "Drawing");
+      toggleVisibility(canvas.tiles, "Tile");
       return true;
     },
   });
@@ -98,17 +98,25 @@ Hooks.on("init", () => {
     hint: "Toggle the Flatfooted condition on the token currently hovered over (if you can control it).",
     editable: [
       {
-        key: "KeyF"
-      }
+        key: "KeyF",
+      },
     ],
-    onDown: () => { canvas.tokens.hover?.actor?.toggleCondition('off-guard'); return true; },
+    onDown: () => {
+      canvas.tokens.hover?.actor?.toggleCondition("off-guard");
+      return true;
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "compendiumBrowser", {
     name: "Open Compendium Browser",
     hint: "Open the compendium browser, or close it if it's already opened.",
     editable: [],
-    onDown: () => { game.pf2e.compendiumBrowser.rendered ? game.pf2e.compendiumBrowser.close() : game.pf2e.compendiumBrowser.render(true); return true;},
+    onDown: () => {
+      game.pf2e.compendiumBrowser.rendered
+        ? game.pf2e.compendiumBrowser.close()
+        : game.pf2e.compendiumBrowser.render(true);
+      return true;
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "endTurn", {
@@ -130,7 +138,7 @@ Hooks.on("init", () => {
     editable: [],
     onDown: () => {
       const actor = oneSelectedTokenActorOrDefaultCharacter()[0];
-      actor.combatant.toggleDefeated()
+      actor.combatant.toggleDefeated();
       return true;
     },
   });
@@ -139,7 +147,10 @@ Hooks.on("init", () => {
     name: "Raise a Shield",
     hint: "Use the Raise a Shield action with the selected token(s) or assigned character.",
     editable: [],
-    onDown: () => { game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() }); return true;},
+    onDown: () => {
+      game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() });
+      return true;
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "takeCover", {
@@ -147,7 +158,7 @@ Hooks.on("init", () => {
     hint: "Use the take Cover action with or apply situational cover with the selected token(s) or assigned character.",
     editable: [],
     onDown: () => {
-      toggleCover()
+      toggleCover();
       return true;
     },
   });
@@ -161,16 +172,19 @@ Hooks.on("init", () => {
       if (!tokenActor) {
         ui.notifications.error("nothing selected!");
       } else {
-        const popout = new ImagePopout(token.document.texture.src, {
-          title: tokenActor.data.token.name,
+        const img = canvas.tokens.controlled[0]
+          ? canvas.tokens.controlled[0].document.texture.src
+          : tokenActor.data.prototypeToken.texture.src;
+        const popout = new ImagePopout(img, {
+          title: tokenActor.data.prototypeToken.name,
           shareable: true,
-          uuid: tokenActor.uuid
-        })
+          uuid: tokenActor.uuid,
+        });
         popout.render(true);
         popout.shareImage();
         return true;
       }
-    }
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "showActorArt", {
@@ -185,13 +199,13 @@ Hooks.on("init", () => {
         const popout = new ImagePopout(tokenActor.img, {
           title: tokenActor.name,
           shareable: true,
-          uuid: tokenActor.uuid
-        })
+          uuid: tokenActor.uuid,
+        });
         popout.render(true);
         popout.shareImage();
         return true;
       }
-    }
+    },
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "cycleAlliance", {
@@ -211,20 +225,38 @@ Hooks.on("init", () => {
     onDown: async () => {
       ui.sidebar.expand();
       ui.sidebar.activateTab("compendium");
-      await new Promise(resolve => {setTimeout(resolve, 50);});
+      await new Promise((resolve) => {
+        setTimeout(resolve, 50);
+      });
       let element = $("#compendium [name=search]");
       element.focus();
-      await new Promise(resolve => {setTimeout(resolve, 50);});
+      await new Promise((resolve) => {
+        setTimeout(resolve, 50);
+      });
       element.val("");
-    }
+    },
   });
 
   //Expand these as needed - the first could probably be detected automatically, but, I'm feeling lazy tonight. :)
-  let alreadyKeyboundConditions = ['off-guard'];
-  let ignorableConditions = ['helpful', 'friendly', 'unfriendly'];
-  let numericConditions = ['clumsy', 'doomed', 'drained', 'dying', 'enfeebled', 'frightened', 'sickened', 'slowed', 'stunned', 'stupefied', 'wounded'];
+  let alreadyKeyboundConditions = ["off-guard"];
+  let ignorableConditions = ["helpful", "friendly", "unfriendly"];
+  let numericConditions = [
+    "clumsy",
+    "doomed",
+    "drained",
+    "dying",
+    "enfeebled",
+    "frightened",
+    "sickened",
+    "slowed",
+    "stunned",
+    "stupefied",
+    "wounded",
+  ];
 
-  let conditions = Object.keys(CONFIG.PF2E.conditionTypes).filter(condition => !ignorableConditions.includes(condition) && !alreadyKeyboundConditions.includes(condition));
+  let conditions = Object.keys(CONFIG.PF2E.conditionTypes).filter(
+    (condition) => !ignorableConditions.includes(condition) && !alreadyKeyboundConditions.includes(condition)
+  );
   for (let id = 0; id < conditions.length; id++) {
     let condition = conditions[id];
     let conditionName = condition.charAt(0).toUpperCase() + condition.slice(1);
@@ -235,7 +267,7 @@ Hooks.on("init", () => {
         hint: `Toggle the ${conditionName} condition of the selected token(s) or assigned character.`,
         editable: [],
         onDown: () => {
-          selectedTokenActorsOrDefaultCharacter().forEach(a => a.toggleCondition(condition));
+          selectedTokenActorsOrDefaultCharacter().forEach((a) => a.toggleCondition(condition));
           return true;
         },
       });
@@ -246,7 +278,7 @@ Hooks.on("init", () => {
           hint: `Increase the ${conditionName} condition of the selected token(s) or assigned character.`,
           editable: [],
           onDown: () => {
-            selectedTokenActorsOrDefaultCharacter().forEach(a => a.increaseCondition(condition));
+            selectedTokenActorsOrDefaultCharacter().forEach((a) => a.increaseCondition(condition));
             return true;
           },
         });
@@ -256,7 +288,7 @@ Hooks.on("init", () => {
           hint: `Decrease the ${conditionName} condition of the selected token(s) or assigned character.`,
           editable: [],
           onDown: () => {
-            selectedTokenActorsOrDefaultCharacter().forEach(a => a.decreaseCondition(condition));
+            selectedTokenActorsOrDefaultCharacter().forEach((a) => a.decreaseCondition(condition));
             return true;
           },
         });
@@ -264,32 +296,55 @@ Hooks.on("init", () => {
     }
   }
 
-  let actions = Object.keys(game.pf2e.actions).map((key) => {
-    const name = key
-      .replace(/([A-Z])/g, ' $1')
-      .replace(/^./, function(str){ return str.toUpperCase(); })
-    const hint = `Use the ${name} action with the selected token or assigned character.`
+  let actions = Object.keys(game.pf2e.actions).flatMap((key) => {
+    let name = key.replace(/([A-Z])/g, " $1").replace(/^./, function (str) {
+      return str.toUpperCase();
+    });
+    const action = game.pf2e.actions.get(game.pf2e.system.sluggify(key));
+    if (action) {
+      name = game.i18n.localize(action.name);
+      if (!action.variants.size) {
+        const hint = `Use the ${name} action with the selected token or assigned character.`;
+        return {
+          key,
+          name,
+          hint,
+          macro: key,
+        };
+      }
+      return action.variants.map((variant) => {
+        const variantName = game.i18n.localize(variant.name);
+        const hint = `Use the ${name} action's ${variantName} variant with the selected token or assigned character.`;
+        return {
+          key: `${key}-${variant.slug}`,
+          name: `${name} (${variantName})`,
+          hint,
+          macro: key,
+          variant: variant.slug,
+        };
+      });
+    }
+    const hint = `Use the ${name} action with the selected token or assigned character.`;
     return {
       key,
       name,
       hint,
-      macro: key
-    }
+      macro: key,
+    };
   });
 
-	actions.forEach((action) => {
-			game.keybindings.register("pf2e-f-is-for-flatfooted", action.key, {
-				name: action.name,
-				hint: action.hint,
-				editable: [],
-				onDown: () => {
-					game.pf2e.actions[action.macro](
-						{
-							actors: oneSelectedTokenActorOrDefaultCharacter()
-						});
-          return true;
-				},
-			});
-		}
-	)
-})
+  actions.forEach((action) => {
+    game.keybindings.register("pf2e-f-is-for-flatfooted", action.key, {
+      name: action.name,
+      hint: action.hint,
+      editable: [],
+      onDown: () => {
+        game.pf2e.actions[action.macro]({
+          actors: oneSelectedTokenActorOrDefaultCharacter(),
+          variant: action.variant,
+        });
+        return true;
+      },
+    });
+  });
+});
