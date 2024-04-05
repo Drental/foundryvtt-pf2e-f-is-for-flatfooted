@@ -4,65 +4,90 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v5.15.0
+
+- allow variant actions
+- fix token image sharing
+- don't look at the code, I just wanted to clear my to-do-list
+
 ### v5.3.2
+
 - trust, but verify
 
 ### v5.3.1
-- getting ahead of system releases 🥳
 
+- getting ahead of system releases 🥳
 - actually a fix for an old issue about wildcard images.
 
 ### v5.3.0
+
 - Finally people are no longer afflicted with medical issues regarding their feet, when they are caught off-guard.
 
 ### v5.0.0
+
 - v11 here we go!
 
 ### v4.20.0
+
 guess who fucked up???
 
 ### v4.20.0
+
 fix authors array and action list
 
 ### v4.10.0
+
 V10 compat
 
 ### v4.0.1
+
 bugfix
 
 ### v4.0.0
+
 add cycle alliance keybind
 
 ### v3.4.3
+
 change name.
 
 ### v3.4.0
-add show token/character art keybinds.
-return true when a keybind was executed.
+
+add show token/character art keybinds. return true when a keybind was executed.
 
 ### v3.3.0
-Refactor how keybinds are added (thanks xdy)
-Add cover keybind
+
+Refactor how keybinds are added (thanks xdy) Add cover keybind
 
 ### v3.2.0
-- Fix some keybinding hints, refactor oneliners to look nicer, generalize visibility hotkey - thank you @shem#0226 / @itamarcu
+
+- Fix some keybinding hints, refactor oneliners to look nicer, generalize visibility hotkey - thank you @shem#0226 /
+  @itamarcu
 
 ### v3.1.6
+
 - enable toggle/increase/decrease for multiple selected tokens at once
 
 ### v3.1.3
+
 - on request of a very special someone: added a toggle to token visibility
 
 ### v3.1.2
-- add additional keybindable actions to end your turn and to increase/decrease/toggle valued conditions total actions at 87 now.
+
+- add additional keybindable actions to end your turn and to increase/decrease/toggle valued conditions total actions at
+  87 now.
 
 ### v3.1.0
-- add a set of 53 bindable options for all action macros, opening the compendium browser, and toggling all not-valued conditions.
+
+- add a set of 53 bindable options for all action macros, opening the compendium browser, and toggling all not-valued
+  conditions.
 
 ### v3.0.1
+
 - adress breaking change in Keybind API
 
 ### v3.0.0
+
 - adjusted for foundry v9
 - regretting making this module
 - why do I have so many updates on what should be a simple one liner.
@@ -70,9 +95,11 @@ Add cover keybind
 - still mad at number of updates
 
 ### v2.0.2
+
 - added keybindlib as a dependency
 
 ### v1.3.5
+
 - aded a proper workflow
 - fixed deprecation warnings
 - cleaned up hover detection
