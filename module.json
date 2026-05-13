@@ -4,7 +4,7 @@
   "description": "Adds Condition, action, and miscellaneous Keybinds to the PF2e system.",
     "compatibility": {
     "minimum": "11",
-    "verified": "11"
+    "verified": "14"
   },
   "version": "5.3.2",
   "authors": [
