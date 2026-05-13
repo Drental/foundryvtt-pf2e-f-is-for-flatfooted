@@ -174,9 +174,9 @@ Hooks.on("setup", () => {
       } else {
         const img = canvas.tokens.controlled[0]
           ? canvas.tokens.controlled[0].document.texture.src
-          : tokenActor.data.prototypeToken.texture.src;
+          : tokenActor.prototypeToken.texture.src;
         const popout = new ImagePopout(img, {
-          title: tokenActor.data.prototypeToken.name,
+          title: tokenActor.prototypeToken.name,
           shareable: true,
           uuid: tokenActor.uuid,
         });
