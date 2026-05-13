@@ -10,7 +10,8 @@ const selectedTokenActorsOrDefaultCharacter = () => {
     return [];
   }
 };
-
+const curSystem = game.pf2e ?? game.sf2e
+const curConfig = CONFIG.PF2E ?? CONFIG.SF2E
 /**
  * This function is just like the above, but expects a single token and doesn't allow many.
  * This is to avoid accidentally creating a lot of chat messages at once (as this is almost never intended)
@@ -45,7 +46,7 @@ const toggleCover = async () => {
   if (!actors.length && game.user.character) {
     actors.push(game.user.character);
   }
-  const ITEM_UUID = "Compendium.pf2e.other-effects.I9lfZUiCwMiGogVi"; // Cover
+  const ITEM_UUID = `Compendium.${game.system.id}.other-effects.I9lfZUiCwMiGogVi`; // Cover
   const source = (await fromUuid(ITEM_UUID)).toObject();
   source.flags.core ??= {};
   source.flags.core.sourceId = ITEM_UUID;
@@ -112,9 +113,9 @@ Hooks.on("setup", () => {
     hint: "Open the compendium browser, or close it if it's already opened.",
     editable: [],
     onDown: () => {
-      game.pf2e.compendiumBrowser.rendered
-        ? game.pf2e.compendiumBrowser.close()
-        : game.pf2e.compendiumBrowser.render(true);
+      curSystem.compendiumBrowser.rendered
+        ? curSystem.compendiumBrowser.close()
+        : curSystem.compendiumBrowser.render(true);
       return true;
     },
   });
@@ -148,7 +149,7 @@ Hooks.on("setup", () => {
     hint: "Use the Raise a Shield action with the selected token(s) or assigned character.",
     editable: [],
     onDown: () => {
-      game.pf2e.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() });
+      curSystem.actions.raiseAShield({ actors: selectedTokenActorsOrDefaultCharacter() });
       return true;
     },
   });
@@ -254,7 +255,7 @@ Hooks.on("setup", () => {
     "wounded",
   ];
 
-  let conditions = Object.keys(CONFIG.PF2E.conditionTypes).filter(
+  let conditions = Object.keys(curConfig.conditionTypes).filter(
     (condition) => !ignorableConditions.includes(condition) && !alreadyKeyboundConditions.includes(condition)
   );
   for (let id = 0; id < conditions.length; id++) {
@@ -296,11 +297,11 @@ Hooks.on("setup", () => {
     }
   }
 
-  let actions = Object.keys(game.pf2e.actions).flatMap((key) => {
+  let actions = Object.keys(curSystem.actions).flatMap((key) => {
     let name = key.replace(/([A-Z])/g, " $1").replace(/^./, function (str) {
       return str.toUpperCase();
     });
-    const action = game.pf2e.actions.get(game.pf2e.system.sluggify(key));
+    const action = curSystem.actions.get(curSystem.system.sluggify(key));
     if (action) {
       name = game.i18n.localize(action.name);
       if (!action.variants.size) {
@@ -339,7 +340,7 @@ Hooks.on("setup", () => {
       hint: action.hint,
       editable: [],
       onDown: () => {
-        game.pf2e.actions[action.macro]({
+        curSystem.actions[action.macro]({
           actors: oneSelectedTokenActorOrDefaultCharacter(),
           variant: action.variant,
         });
