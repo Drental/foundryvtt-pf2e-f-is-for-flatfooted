@@ -94,11 +94,11 @@ Hooks.on("setup", () => {
   });
 
   game.keybindings.register("pf2e-f-is-for-flatfooted", "flatfooted", {
-    name: "F is for Off-Guard",
+    name: "O is for Off-Guard",
     hint: "Toggle the Flatfooted condition on the token currently hovered over (if you can control it).",
     editable: [
       {
-        key: "KeyF",
+        key: "KeyO",
       },
     ],
     onDown: () => {

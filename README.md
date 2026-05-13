@@ -7,6 +7,7 @@ Make things flatfooted by hovering and pressing the F key.
 ### v14.0.0
 
 - claim v14 compatibility
+- O is for Off-Guard
 
 ### v5.15.0
 
