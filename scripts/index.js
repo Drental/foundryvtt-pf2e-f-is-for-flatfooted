@@ -10,8 +10,7 @@ const selectedTokenActorsOrDefaultCharacter = () => {
     return [];
   }
 };
-const curSystem = game.pf2e ?? game.sf2e
-const curConfig = CONFIG.PF2E ?? CONFIG.SF2E
+
 /**
  * This function is just like the above, but expects a single token and doesn't allow many.
  * This is to avoid accidentally creating a lot of chat messages at once (as this is almost never intended)
@@ -81,6 +80,9 @@ const cycleAlliance = async () => {
 };
 
 Hooks.on("setup", () => {
+  const curSystem = game.pf2e ?? game.sf2e
+  const curConfig = CONFIG.PF2E ?? CONFIG.SF2E
+
   game.keybindings.register("pf2e-f-is-for-flatfooted", "visibility", {
     name: "Toggle Visibility",
     hint: "Toggle the visibility state of each selected token, tile, or drawing (hiding or revealing it).",
