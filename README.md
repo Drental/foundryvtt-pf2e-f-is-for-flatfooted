@@ -4,6 +4,10 @@ Make things flatfooted by hovering and pressing the F key.
 
 ## Changelog
 
+### v14.0.1
+
+- fix a bug during keybind initialisation.
+
 ### v14.0.0
 
 - claim v14 compatibility
